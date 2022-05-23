@@ -1,11 +1,10 @@
 import React, {useEffect, useState, KeyboardEvent} from 'react';
-import {RaitingProps} from "./Raiting.props";
-import style from './Raiting.module.css';
+import {RatingProps} from "./Rating.props";
+import style from './Rating.module.css';
 import cn from 'classnames';
 import StarIcon from './star.svg';
 
-
-export const Raiting = ({isEditable = false, rating, setRating, ...props}: RaitingProps): JSX.Element => {
+export const Rating = ({isEditable = false, rating, setRating, ...props}: RatingProps): JSX.Element => {
 
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
@@ -17,6 +16,7 @@ export const Raiting = ({isEditable = false, rating, setRating, ...props}: Raiti
         const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
             return (
                 <span
+                    key={i}
                     className={cn(style.star, {
                         [style.filled]: i < currentRating,
                         [style.editable]: isEditable
@@ -56,12 +56,9 @@ export const Raiting = ({isEditable = false, rating, setRating, ...props}: Raiti
         setRating(i);
     }
 
-
     return (
         <div {...props}>
             {ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
         </div>
     );
 };
-
-export default Raiting;

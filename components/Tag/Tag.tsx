@@ -3,8 +3,6 @@ import {TagProps} from "./Tag.props";
 import style from './Tag.module.css';
 import cn from 'classnames';
 
-
-
 export const Tag = ({variant = 's', children, color='ghost', href, className, ...props}: TagProps): JSX.Element => {
     return (
         <div
@@ -27,5 +25,3 @@ export const Tag = ({variant = 's', children, color='ghost', href, className, ..
         </div>
     );
 };
-
-export default Tag;

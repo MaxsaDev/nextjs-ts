@@ -1,3 +1,4 @@
+import React from 'react';
 import '../styles/globals.css'
 import {AppProps} from "next/dist/shared/lib/router/router";
 import Head from "next/head";
